@@ -28,15 +28,15 @@ The official results :
         <td div align="center">33.7426%</td> 
         <td div align="center">24.1090%</td> 
         <td div align="center">20.5883%</td> 
-        <td div align="center"><a href="https://drive.google.com/file/d/1G51qlnwXMSD5zgRlXPCjkAjBWMlqbjdg/view?usp=sharing">log</a></td>
+        <td div align="center"><a href="https://drive.google.com/file/d/1G51qlnwXMSD5zgRlXPCjkAjBWMlqbjdg/view?usp=drive_link">log</a></td>
         <td div align="center"><a href="https://drive.google.com/file/d/183zRv7EaR3ReS4QA9KTfLPbRRxwjHcqU/view?usp=sharing">ckpt</a></td>
     </tr>  
   <tr> 
         <td div align="center">31.5802%</td> 
         <td div align="center">23.5648%</td> 
         <td div align="center">20.2746%</td> 
-        <td div align="center"><a href="https://drive.google.com/file/d/1bTqH3DCnN-PSjchHDX0yG52xsAdMCFPy/view?usp=sharing">log</a></td>
-        <td div align="center"><a href="https://drive.google.com/file/d/1Sa1J2m0dp0a34ILvWt7YMFl1jJHprDbC/view?usp=sharing">ckpt</a></td>
+        <td div align="center"><a href="https://drive.google.com/file/d/1bTqH3DCnN-PSjchHDX0yG52xsAdMCFPy/view?usp=drive_link">log</a></td>
+        <td div align="center"><a href="https://drive.google.com/file/d/1Sa1J2m0dp0a34ILvWt7YMFl1jJHprDbC/view?usp=drive_link">ckpt</a></td>
     </tr>  
 </table>
 
