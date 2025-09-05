@@ -47,6 +47,7 @@ The official results :
     cd MonoCLUE
 
     conda create -n monoclue python=3.8
+    conda activate monoclue
     ```
     
 2. Install pytorch and torchvision matching your CUDA version:
@@ -63,15 +64,10 @@ The official results :
     
     cd ../../../..
     ```
-    
-4. Make dictionary for saving training losses:
-    ```
-    mkdir logs
-    ```
  
-5. Download [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) datasets and prepare the directory structure as:
+4. Download [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) datasets and prepare the directory structure as:
     ```
-    │MonoDGP/
+    │MonoCLUE/
     ├──...
     │data/kitti/
     ├──ImageSets/
@@ -83,6 +79,29 @@ The official results :
     │   ├──image_2
     │   ├──calib
     ```
+    
+5. Download sam_vit_h.pth from the [SAM](https://github.com/facebookresearch/segment-anything) repository and prepare the SAM-guided dataset.
+    ```
+    python make_sam.py
+    ```
+6. Finally, prepare the directory structure as:
+    ```
+    │MonoCLUE/
+    ├──...
+    │data/kitti/
+    ├──ImageSets/
+    ├──training/
+    │   ├──image_2
+    │   ├──label_2
+    │   ├──calib
+    |   ├──label_sam/
+    |        ├──region
+    |        └──depth
+    ├──testing/
+    │   ├──image_2
+    │   ├──calib
+    ```
+    
     You can also change the data path at "dataset/root_dir" in `configs/monoclue.yaml`.
     
 ## Get Started
