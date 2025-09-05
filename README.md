@@ -2,10 +2,10 @@
 
 ## Introduction
 This repository provides the official implementation of [MonoCLUE: Object-aware Clustering Enhances Monocular 3D Object Detection](https://arxiv.org) based on the excellent work [MonoDGP](https://github.com/PuFanqi23/MonoDGP). In this work, we propose a DETR-based monocular 3D detection framework that strengthens visual reasoning by leveraging clustering and scene memory, enabling robust performance under occlusion and limited visibility.
-<div align="center"> <img src="figures/overall_architecture.png" width="700" height="auto"/> </div> 
+<div align="center"> <img src="figures/overall_architecture.png" width="600" height="auto"/> </div> 
 
 ## Main Figures
-<div align="center"> <img src="figures/explanation.png" width="400" height="auto"/> </div>
+<div align="center"> <img src="figures/explanation.png" width="600" height="auto"/> </div>
 
 ## Main Result
 The official results :
