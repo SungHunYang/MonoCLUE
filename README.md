@@ -2,13 +2,16 @@
 
 This repository provides the official implementation of [MonoCLUE: Object-aware Clustering Enhances Monocular 3D Object Detection](https://arxiv.org) based on the excellent work [MonoDGP](https://github.com/PuFanqi23/MonoDGP). In this work, we propose a DETR-based monocular 3D detection framework that strengthens visual reasoning by leveraging clustering and scene memory, enabling robust performance under occlusion and limited visibility.
 
-## Results
-"MonoDGP" in the paper:
+<div align="center">
+  <img src="figures/overall_architecture.png" width="800" height="auto"/>
+</div>
 
 <table>
     <tr>
         <td rowspan="2",div align="center">Models</td>
         <td colspan="3",div align="center">Val, AP<sub>3D|R40</sub></td>   
+        <td rowspan="2",div align="center">Logs</td>
+        <td rowspan="2",div align="center">Ckpts</td>
     </tr>
     <tr>
         <td div align="center">Easy</td> 
@@ -16,10 +19,19 @@ This repository provides the official implementation of [MonoCLUE: Object-aware 
         <td div align="center">Hard</td> 
     </tr>
     <tr>
-        <td rowspan="4",div align="center">MonoDGP</td>
-        <td div align="center">30.7624%</td> 
-        <td div align="center">22.3421%</td> 
-        <td div align="center">19.0144%</td> 
+        <td rowspan="4",div align="center">MonoCLUE</td>
+        <td div align="center">33.7426%</td> 
+        <td div align="center">24.1090%</td> 
+        <td div align="center">20.5883%</td> 
+        <td div align="center"><a href="https://drive.google.com/file/d/1ccwmKmxjJMtiD5GAYMlB9Acz_sV2gtwJ/view?usp=sharing">log</a></td>
+        <td div align="center"><a href="https://drive.google.com/file/d/1Nddzx3xDE0DPZzVluR9HEYRgH2wALU9z/view?usp=sharing">ckpt</a></td>
+    </tr>  
+  <tr>
+        <td div align="center">31.5802%</td> 
+        <td div align="center">23.5648%</td> 
+        <td div align="center">20.2746%</td> 
+        <td div align="center"><a href="https://drive.google.com/file/d/1mjk457aBjxs6a3Lf-biX10_YzhW2th_U/view?usp=sharing">log</a></td>
+        <td div align="center"><a href="https://drive.google.com/file/d/1eCON928oVFTL2U64qZotWYhRCRopldxY/view?usp=sharing">ckpt</a></td>
     </tr>  
 </table>
 
