@@ -43,24 +43,22 @@ The official results :
 ## Installation
 1. Clone this project and create a conda environment:
     ```
-    git clone https://github.com/ZrrSkywalker/MonoDETR.git
-    cd MonoDETR
+    git clone https://github.com/SungHunYang/MonoCLUE.git
+    cd MonoCLUE
 
-    conda create -n monodetr python=3.8
-    conda activate monodetr
+    conda create -n monoclue python=3.8
     ```
     
 2. Install pytorch and torchvision matching your CUDA version:
     ```bash
-    conda install pytorch torchvision cudatoolkit
-    # We adopt torch 1.9.0+cu111
+    pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121
     ```
     
 3. Install requirements and compile the deformable attention:
     ```
     pip install -r requirements.txt
 
-    cd lib/models/monodetr/ops/
+    cd lib/models/monoclue/ops/
     bash make.sh
     
     cd ../../../..
@@ -73,27 +71,31 @@ The official results :
  
 5. Download [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) datasets and prepare the directory structure as:
     ```
-    │MonoDETR/
+    │MonoDGP/
     ├──...
-    ├──data/KITTIDataset/
-    │   ├──ImageSets/
-    │   ├──training/
-    │   ├──testing/
-    ├──...
+    │data/kitti/
+    ├──ImageSets/
+    ├──training/
+    │   ├──image_2
+    │   ├──label_2
+    │   ├──calib
+    ├──testing/
+    │   ├──image_2
+    │   ├──calib
     ```
-    You can also change the data path at "dataset/root_dir" in `configs/monodetr.yaml`.
+    You can also change the data path at "dataset/root_dir" in `configs/monoclue.yaml`.
     
 ## Get Started
 
 ### Train
-You can modify the settings of models and training in `configs/monodetr.yaml` and indicate the GPU in `train.sh`:
+You can modify the settings of models and training in `configs/monoclue.yaml` and indicate the GPU in `train.sh`:
 
-    bash train.sh configs/monodetr.yaml > logs/monodetr.log
+    bash train.sh configs/monoclue.yaml > logs/monoclue.log
    
 ### Test
-The best checkpoint will be evaluated as default. You can change it at "tester/checkpoint" in `configs/monodetr.yaml`:
+The best checkpoint will be evaluated as default. You can change it at "tester/checkpoint" in `configs/monoclue.yaml`:
 
-    bash test.sh configs/monodetr.yaml
+    bash test.sh configs/monoclue.yaml
 
 
 ## Acknowlegment
