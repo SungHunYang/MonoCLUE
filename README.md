@@ -84,7 +84,7 @@ The official results :
     ```
     python make_sam.py
     ```
-    Note If you run it with all_category, a folder named "label_sam_all" should be created.
+    Note that if you run it with all_category, a folder named "label_sam_all" should be created.
    
 7. Finally, prepare the directory structure as:
     ```
