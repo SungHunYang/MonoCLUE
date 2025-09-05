@@ -84,7 +84,9 @@ The official results :
     ```
     python make_sam.py
     ```
-6. Finally, prepare the directory structure as:
+    Note If you run it with all_category, a folder named "label_sam_all" should be created.
+   
+7. Finally, prepare the directory structure as:
     ```
     │MonoCLUE/
     ├──...
