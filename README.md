@@ -6,6 +6,12 @@ This repository provides the official implementation of [MonoCLUE: Object-aware 
   <img src="figures/overall_architecture.png" width="800" height="auto"/>
 </div>
 
+<div align="center">
+  <img src="figures/explanation.png" width="800" height="auto"/>
+</div>
+
+
+
 <table>
     <tr>
         <td rowspan="2",div align="center">Models</td>
