@@ -1,4 +1,4 @@
-random_seed: 444
+# random_seed: 444
 
 dataset:
   type: &dataset_type 'KITTI'
