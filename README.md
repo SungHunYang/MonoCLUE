@@ -99,7 +99,7 @@ The test result :
     Note that if you run it with all_category, a folder named "label_sam_all" should be created.
    
 7. Finally, prepare the directory structure as:
-    ```
+    ```   
     │MonoCLUE/
     ├──...
     │data/kitti/
@@ -122,13 +122,43 @@ The test result :
 
 ### Train
 You can modify the settings of models and training in `configs/monoclue.yaml` and indicate the GPU in `train.sh`:
-
+    ```
     bash train.sh configs/monoclue.yaml > logs/monoclue.log
-   
+    ```
 ### Test
 The best checkpoint will be evaluated as default. You must ensure that the checkpoint is located in `outputs/monoclue/outputs`:
-
+    ```
     bash test.sh configs/monoclue.yaml
+    ```
+
+### Visualize
+1. After testing, prepare the directory structure as follows:
+    ```
+    │MonoCLUE/
+    ├──outputs/
+    │   ├──monoclue/
+    │       ├──outputs/
+    │           ├──data/
+    │               ├──000001.txt
+    │               ├──000002.txt
+    │               ├──000003.txt
+    │               ├──000004.txt
+    ```
+    
+2. Navigate to the visualization folder:
+    ```bash
+    cd visualize
+    ```
+3. Run the visualization script:
+    ```bash
+    
+    python draw3D_bbox.py
+
+    # With detailed information
+    python draw3D_bbox.py --print_info True
+    ```
+    
+Note If you need LiDAR visualization, please refer to [kitti_object_vis](https://github.com/kuixu/kitti_object_vis) repository 
 
 
 ## Acknowlegment
