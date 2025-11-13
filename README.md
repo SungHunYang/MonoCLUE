@@ -160,7 +160,7 @@ The best checkpoint will be evaluated as default. You must ensure that the check
     python draw3D_bbox.py --print_info True
     ```
     
-Note that if you need LiDAR visualization, please refer to [kitti_object_vis](https://github.com/kuixu/kitti_object_vis) repository 
+Note that if you need LiDAR visualization, please follow [kitti_object_vis](https://github.com/kuixu/kitti_object_vis) repository 
 
 
 ## Acknowlegment
