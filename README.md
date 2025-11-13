@@ -5,6 +5,7 @@ This repository provides the official implementation of "MonoCLUE: Object-Aware 
 
 <p align="center">
     <a href="https://arxiv.org/abs/2511.07862"><img src="https://img.shields.io/badge/MonoCLUE-arXiv-red.svg"></a>
+    <a href="http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d"><img src="https://img.shields.io/badge/KITTI-dataset-green.svg"></a>
 </p>
 
 
@@ -77,7 +78,7 @@ The test result :
     cd ../../../..
     ```
  
-4. Download [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) datasets and prepare the directory structure as:
+4. Download KITTI datasets and prepare the directory structure as:
     ```
     │MonoCLUE/
     ├──...
