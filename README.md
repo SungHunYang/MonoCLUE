@@ -40,6 +40,11 @@ The official results :
     </tr>  
 </table>
 
+The test result :
+
+<div align="center"> <img src="figures/test_result.png" width="600" height="auto"/> </div>
+
+
 ## Installation
 1. Clone this project and create a conda environment:
     ```
