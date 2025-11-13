@@ -119,7 +119,7 @@ You can modify the settings of models and training in `configs/monoclue.yaml` an
     bash train.sh configs/monoclue.yaml > logs/monoclue.log
    
 ### Test
-The best checkpoint will be evaluated as default. You can change it at "tester/checkpoint" in `configs/monoclue.yaml`:
+The best checkpoint will be evaluated as default. You must ensure that the checkpoint is located in `/outputs/monoclue/outputs`:
 
     bash test.sh configs/monoclue.yaml
 
