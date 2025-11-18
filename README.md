@@ -14,6 +14,20 @@ This repository provides the official implementation of "MonoCLUE: Object-Aware 
 
 <div align="center"> <img src="figures/explanation.png" width="600" height="auto"/> </div>
 
+## Demo
+
+### Sample 1
+<p align="center">
+  <img src="figures/sample1.gif" width="600"/>
+</p>
+
+### Sample 2
+<p align="center">
+  <img src="figures/sample2.gif" width="600"/>
+</p>
+
+
+
 ## Main Result
 
 Note that the randomness of training for monocular detection would cause a variance of ±1 AP<sub>3D|R40</sub> on KITTI.
