@@ -16,12 +16,12 @@ This repository provides the official implementation of "MonoCLUE: Object-Aware 
 
 ## Demo
 
-### 1
+### Scene 1
 <p align="center">
   <img src="figures/sample1.gif" width="600"/>
 </p>
 
-### 2
+### Scene 2
 <p align="center">
   <img src="figures/sample2.gif" width="600"/>
 </p>
