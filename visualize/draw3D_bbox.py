@@ -54,7 +54,6 @@ def parse_args():
         description="Project GT & predicted 3D boxes to image and save visualization."
     )
 
-    # 체크 파일 (valid ids)
     parser.add_argument(
         "--valid_ids_path",
         type=str,
@@ -68,14 +67,12 @@ def parse_args():
         default=False
     )
 
-    # 출력 경로
     parser.add_argument(
         "--out_dir",
         type=str,
         default="./viz"
     )
 
-    # (선택) 일부 id만 돌리고 싶을 때
     parser.add_argument(
         "--max_num",
         type=int,
@@ -93,7 +90,7 @@ def parse_args():
 
 
 def main(args):
-    # 출력 디렉토리 미리 생성
+
     os.makedirs(args.out_dir, exist_ok=True)
 
 
@@ -127,11 +124,9 @@ def main(args):
             print(f"[WARN] Cannot read image {img_path}")
             continue
 
-        # GT 없으면 스킵
         if len(df_gt) == 0:
             continue
 
-        # GT box 그리기 (초록)
         for i in range(len(df_gt)):
             corners_3d_cam2 = compute_3d_box_cam2(
                 *df_gt.loc[i, ['height', 'width', 'length',
@@ -145,7 +140,6 @@ def main(args):
             )
             save_img = image.copy()
 
-        # DETR box 그리기 (빨강)
         for q in range(len(df_pred)):
             corners_3d_cam2 = compute_3d_box_cam2(
                 *df_pred.loc[q, ['height', 'width', 'length',
