@@ -11,6 +11,11 @@ from lib.helpers.save_helper import save_checkpoint
 
 from utils import misc
 
+BOLD  = "\033[1m"
+BLUE  = "\033[34m"
+CYAN  = "\033[36m"
+RED   = "\033[31m"
+RESET = "\033[0m"
 
 class Trainer(object):
     def __init__(self,
@@ -66,7 +71,6 @@ class Trainer(object):
     def train(self):
         start_epoch = self.epoch
 
-        progress_bar = tqdm.tqdm(range(start_epoch, self.cfg['max_epoch']), dynamic_ncols=True, leave=True, desc='epochs')
         best_result = self.best_result
         best_epoch = self.best_epoch
         for epoch in range(start_epoch, self.cfg['max_epoch']):
@@ -110,8 +114,6 @@ class Trainer(object):
                     self.logger.info("Best Result:{}, epoch:{}".format(best_result, best_epoch))
                     print("Best Result:{}, epoch:{}".format(best_result, best_epoch))
 
-            progress_bar.update()
-
         self.logger.info("Best Result:{}, epoch:{}".format(best_result, best_epoch))
         print("Best Result:{}, epoch:{}".format(best_result, best_epoch))
 
@@ -121,8 +123,9 @@ class Trainer(object):
         torch.set_grad_enabled(True)
         self.model.train()
         print(">>>>>>> Epoch:", str(epoch) + ":")
+        # progress_bar = tqdm.tqdm(total=len(self.train_loader), leave=(self.epoch+1 == self.cfg['max_epoch']), desc='iters', postfix={'loss': 0.0})
+        progress_bar = tqdm.tqdm( total=len(self.train_loader), dynamic_ncols=True, leave=True )
 
-        progress_bar = tqdm.tqdm(total=len(self.train_loader), leave=(self.epoch+1 == self.cfg['max_epoch']), desc='iters')
         for batch_idx, (inputs, calibs, targets, info) in enumerate(self.train_loader):
             inputs = inputs.to(self.device)
             calibs = calibs.to(self.device)
@@ -156,7 +159,7 @@ class Trainer(object):
             detr_losses_dict_log["loss_detr"] = detr_losses_log
 
             flags = [True] * 5
-            if batch_idx % 90 == 0:
+            if batch_idx % self.cfg['log_freq'] == 0:
                 print("----", batch_idx, "----")
                 print("%s: %.2f, " %("loss_detr", detr_losses_dict_log["loss_detr"]))
                 for key, val in detr_losses_dict_log.items():
@@ -172,6 +175,14 @@ class Trainer(object):
 
             detr_losses.backward()
             self.optimizer.step()
+
+            progress_bar.set_description(
+                f"{BOLD}{BLUE}Epoch {epoch + 1}/{self.cfg['max_epoch']}{RESET} | "f"{BOLD}{CYAN}Iter{RESET}"
+            )
+
+            progress_bar.set_postfix(
+                loss=f"{BOLD}{RED}{detr_losses:.4f}{RESET}"
+            )
 
             progress_bar.update()
         progress_bar.close()

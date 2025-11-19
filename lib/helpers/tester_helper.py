@@ -8,6 +8,11 @@ from lib.helpers.decode_helper import extract_dets_from_outputs
 from lib.helpers.decode_helper import decode_detections
 import time
 
+BOLD  = "\033[1m"
+BLUE  = "\033[34m"
+CYAN  = "\033[36m"
+RED   = "\033[31m"
+RESET = "\033[0m"
 
 class Tester(object):
     def __init__(self, cfg, model, dataloader, logger, train_cfg=None, model_name='monoclue'):
@@ -68,7 +73,7 @@ class Tester(object):
         self.model.eval()
 
         results = {}
-        progress_bar = tqdm.tqdm(total=len(self.dataloader), leave=True, desc='Evaluation Progress')
+        progress_bar = tqdm.tqdm(total=len(self.dataloader), dynamic_ncols=True, leave=True)
         model_infer_time = 0
         for batch_idx, (inputs, calibs, targets, info) in enumerate(self.dataloader):
             # load evaluation data and move data to GPU.
@@ -99,6 +104,11 @@ class Tester(object):
                 threshold=self.cfg.get('threshold', 0.2))
 
             results.update(dets)
+
+            progress_bar.set_description(
+                f"{BOLD}{BLUE}Evaluation Progress{RESET} | "f"{BOLD}{CYAN}Iter{RESET}"
+            )
+
             progress_bar.update()
 
         print("inference on {} images by {}/per image".format(
