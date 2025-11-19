@@ -2,7 +2,7 @@
 
 dataset:
   type: &dataset_type 'KITTI'
-  root_dir: './data/kitti/'
+  root_dir: '.data/kitti/'
   train_split: 'train'
   test_split: 'val'
   batch_size: 8
@@ -105,6 +105,7 @@ trainer:
   label_noise_scale: 0.2
   box_noise_scale: 0.4
   num_patterns: 0
+  log_freq : 100
 
 lr_scheduler:
   type: 'step'  # 'step' or 'cos'
