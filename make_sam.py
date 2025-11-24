@@ -50,16 +50,16 @@ if len(cfg['dataset']['writelist']) > 1:
 else:
     out_path = os.path.join(cfg['dataset']['root_dir'],'training','label_sam')
 
-obj_list = ['region','depth']
+obj_list = ['region', 'depth']
 for obj in obj_list:
     os.makedirs(os.path.join(out_path, obj), exist_ok=True)
 
 print(f'Image_path : {img_path}')
 print(f'Save_path : {out_path}')
 
-train_loader, test_loader = build_dataloader(cfg['dataset'])
+train_loader, test_loader = build_dataloader(cfg['dataset'], SAM=False)
 
-visualize_png = False
+visualize_png = True
 
 for batch_idx, (_, calibs, targets, info) in enumerate(tqdm(train_loader)):
     # targets set
