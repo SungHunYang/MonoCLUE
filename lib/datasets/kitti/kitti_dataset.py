@@ -40,7 +40,7 @@ import copy
 
 
 class KITTI_Dataset(data.Dataset):
-    def __init__(self, split, cfg):
+    def __init__(self, split, cfg, SAM = True):
 
         # basic configuration
         self.root_dir = cfg.get('root_dir')
@@ -81,11 +81,14 @@ class KITTI_Dataset(data.Dataset):
         else:
             sam_dir = 'label_sam_all'
 
+        self.sam_flag = SAM
+
         self.sam_region_dir = os.path.join(self.data_dir, sam_dir, 'region')
         self.sam_depth_dir = os.path.join(self.data_dir, sam_dir, 'depth')
 
         # data augmentation configuration
         self.data_augmentation = True if split in ['train', 'trainval','check'] else False
+        # self.data_augmentation = False
         self.istrain = True if split in ['train', 'trainval','check'] else False
 
         self.aug_pd = cfg.get('aug_pd', False)
@@ -184,7 +187,7 @@ class KITTI_Dataset(data.Dataset):
         random_mix_flag = False
         calib = self.get_calib(index)
 
-        if self.split != 'test':
+        if self.split != 'test' and self.sam_flag:
             sam_region = np.load(os.path.join(self.sam_region_dir, '%06d.npy' % index))
             sam_depth = np.load(os.path.join(self.sam_depth_dir, '%06d.npy' % index))
 
@@ -252,6 +255,7 @@ class KITTI_Dataset(data.Dataset):
                             overlap = (sam_depth > 0.) & (sam_depth2 > 0.)
                             min_combined = np.minimum(sam_depth, sam_depth2)
                             sam_depth = np.where(overlap, min_combined, sam_depth + sam_depth2)
+
                             img_blend = Image.blend(img, img_temp, alpha=0.5)
                             img = img_blend
                             break
@@ -263,7 +267,7 @@ class KITTI_Dataset(data.Dataset):
                             data=tuple(trans_inv.reshape(-1).tolist()),
                             resample=Image.BILINEAR)
 
-        if self.split != 'test':
+        if self.split != 'test' and self.sam_flag:
             # sam image affine
             sam_region = Image.fromarray(sam_region)
             sam_depth = Image.fromarray(sam_depth)
@@ -563,6 +567,10 @@ class KITTI_Dataset(data.Dataset):
 
         # collect return data
         inputs = img
+
+        if not self.sam_flag:
+            sam_depth = torch.zeros(0)
+            sam_region = torch.zeros(0)
 
         targets = {
             'calibs': calibs,
