@@ -9,11 +9,11 @@ def my_worker_init_fn(worker_id):
     np.random.seed(np.random.get_state()[1][0] + worker_id)
 
 
-def build_dataloader(cfg, workers=7):
+def build_dataloader(cfg, workers=7, SAM=True):
     # perpare dataset
     if cfg['type'] == 'KITTI':
-        train_set = KITTI_Dataset(split=cfg['train_split'], cfg=cfg)
-        test_set = KITTI_Dataset(split=cfg['test_split'], cfg=cfg)
+        train_set = KITTI_Dataset(split=cfg['train_split'], cfg=cfg, SAM=SAM)
+        test_set = KITTI_Dataset(split=cfg['test_split'], cfg=cfg, SAM=SAM)
     else:
         raise NotImplementedError("%s dataset is not supported" % cfg['type'])
 
