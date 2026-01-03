@@ -179,6 +179,16 @@ The best checkpoint will be evaluated as default. You must ensure that the check
     
 Note that if you need LiDAR visualization, please follow [kitti_object_vis](https://github.com/kuixu/kitti_object_vis) repository 
 
+## Citation
+Please cite this work if you find it useful:
+```BibTex
+@article{yang2025monoclue,
+  title={MonoCLUE: Object-Aware Clustering Enhances Monocular 3D Object Detection},
+  author={Yang, Sunghun and Lee, Minhyeok and Lee, Jungho and Lee, Sangyoun},
+  journal={arXiv preprint arXiv:2511.07862},
+  year={2025}
+}
+```
 
 ## Acknowlegment
 This repo benefits from the excellent [MonoDETR](https://github.com/ZrrSkywalker/MonoDETR) / [MonoDGP](https://github.com/PuFanqi23/MonoDGPand).
