@@ -112,7 +112,7 @@ The test result :
     ```
     python make_sam.py
     ```
-    **Important:** Before generating the SAM-guided dataset, please set `self.data_augmentation = False` in `kitti_dataset.py`.  
+    **Important:** Before generating the SAM-guided dataset, please set `self.data_augmentation = False` in `kitti_dataset.py`, and set `batch_size = 1` in `monoclue.yaml`.  
     Otherwise, the generated SAM labels may be misaligned.
    
     Note that if you run it with all_category, a folder named "label_sam_all" should be created.
