@@ -182,11 +182,14 @@ Note that if you need LiDAR visualization, please follow [kitti_object_vis](http
 ## Citation
 Please cite this work if you find it useful:
 ```BibTex
-@article{yang2025monoclue,
+@inproceedings{yang2026monoclue,
   title={MonoCLUE: Object-Aware Clustering Enhances Monocular 3D Object Detection},
   author={Yang, Sunghun and Lee, Minhyeok and Lee, Jungho and Lee, Sangyoun},
-  journal={arXiv preprint arXiv:2511.07862},
-  year={2025}
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={40},
+  number={14},
+  pages={11721--11729},
+  year={2026}
 }
 ```
 
